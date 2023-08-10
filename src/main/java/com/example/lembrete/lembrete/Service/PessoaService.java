@@ -1,5 +1,6 @@
 package com.example.lembrete.lembrete.Service;
 
+import com.example.lembrete.lembrete.entity.Lembrete;
 import com.example.lembrete.lembrete.entity.Pessoa;
 import com.example.lembrete.lembrete.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,9 @@ public class PessoaService {
         Assert.isTrue(marcaBanco.getId().equals(id) ,"Error id da URL diferente do body");
         Assert.isTrue(marcaBanco == null || marcaBanco.getId().equals(atualizar.getId()),"nao identificado o registro informado");
         this.Repository.save(atualizar);
+    }
+
+    public List<Pessoa> achaNome(String nomePessoa) {
+        return Repository.findByNome(nomePessoa);
     }
 }

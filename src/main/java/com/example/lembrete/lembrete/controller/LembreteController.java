@@ -32,8 +32,8 @@ public class LembreteController {
     }
     @GetMapping("/lista/pessoa/{nome}")
     public ResponseEntity<List<Lembrete>> parcelas(@PathVariable(value = "nome") String nomePessoa){
-        List<Lembrete> listarParcela = Repository.findByNome(nomePessoa);
-        return ResponseEntity.ok(listarParcela);
+        List<Lembrete> listarnome= Service.achaNome(nomePessoa);
+        return ResponseEntity.ok(listarnome);
     }
 
     @GetMapping("/lista/id/{id}")

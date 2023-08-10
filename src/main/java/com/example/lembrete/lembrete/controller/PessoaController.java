@@ -1,6 +1,7 @@
 package com.example.lembrete.lembrete.controller;
 
 import com.example.lembrete.lembrete.Service.PessoaService;
+import com.example.lembrete.lembrete.entity.Lembrete;
 import com.example.lembrete.lembrete.entity.Pessoa;
 import com.example.lembrete.lembrete.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,11 @@ public class PessoaController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+    @GetMapping("/lista/pessoa/{nome}")
+    public ResponseEntity<List<Pessoa>> parcelas(@PathVariable(value = "nome") String nomePessoa){
+        List<Pessoa> listarNome = Service.achaNome(nomePessoa);
+        return ResponseEntity.ok(listarNome);
     }
 
     @DeleteMapping("/delete/{id}")

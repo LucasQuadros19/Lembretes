@@ -18,6 +18,11 @@ public class LembreteService {
     public List<Lembrete> listartudo(){
         return Repository.findAll();
     }
+    public List<Lembrete> achaNome(String nomePessoa){
+        return Repository.findByNome(nomePessoa);
+    }
+
+
     @Transactional(rollbackFor = Exception.class)
     public Lembrete cadastrar(Lembrete cadastrar) {
 
