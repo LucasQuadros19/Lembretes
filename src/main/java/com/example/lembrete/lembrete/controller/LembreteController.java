@@ -30,6 +30,12 @@ public class LembreteController {
         List<Lembrete> listartudo = Service.listartudo();
         return ResponseEntity.ok(listartudo);
     }
+    @GetMapping("/lista/pessoa/{nome}")
+    public ResponseEntity<List<Lembrete>> parcelas(@PathVariable(value = "nome") String nomePessoa){
+        List<Lembrete> listarParcela = Repository.findByNome(nomePessoa);
+        return ResponseEntity.ok(listarParcela);
+    }
+
     @GetMapping("/lista/id/{id}")
     public ResponseEntity<?> listaId(@PathVariable(value = "id") Long id){
         Lembrete listarid = Repository.findById(id).orElse(null);
@@ -50,11 +56,7 @@ public class LembreteController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-    @GetMapping("/lista/nome-pessoa/{nome}")
-    public ResponseEntity<List<Lembrete>> listaPorNomePessoa(@PathVariable String nome) {
-        List<Lembrete> lembretesPorNomePessoa = Service.listarPorNomePessoa(nome);
-        return ResponseEntity.ok(lembretesPorNomePessoa);
-    }
+
 
 
     @DeleteMapping("/delete/{id}")

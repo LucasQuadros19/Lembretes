@@ -31,7 +31,5 @@ public class LembreteService {
         Assert.isTrue(marcaBanco == null || marcaBanco.getId().equals(atualizar.getId()),"nao identificado o registro informado");
         this.Repository.save(atualizar);
     }
-    public List<Lembrete> listarPorNomePessoa(String nome) {
-        return Repository.findByPessoaNome(nome);
-    }
+
 }
