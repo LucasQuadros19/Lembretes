@@ -48,7 +48,7 @@ public class PessoaController {
         }
     }
     @GetMapping("/lista/pessoa/{nome}")
-    public ResponseEntity<List<Pessoa>> parcelas(@PathVariable(value = "nome") String nomePessoa){
+    public ResponseEntity<List<Pessoa>> acharNome(@PathVariable(value = "nome") String nomePessoa){
         List<Pessoa> listarNome = Service.achaNome(nomePessoa);
         return ResponseEntity.ok(listarNome);
     }

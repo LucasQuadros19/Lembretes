@@ -20,4 +20,9 @@ public class Pessoa extends AbstractEntity {
     @JsonManagedReference
     @Column(name = "tarefas",length = 100)
     private List<Lembrete> lembretes;
+
+
+    public Pessoa(String nome) {
+        this.Nome = nome;
+    }
 }
